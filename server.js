@@ -1,21 +1,19 @@
 // server.js
 
 import express from 'express';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
+import { AdminRouter } from './backend/admin/core/AdminRouter.js';;
+import { adminApi } from './backend/admin/core/adminApi.js';
 const app = express();
+const port = 3000;
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-  //res.sendFile(path.join(__dirname, '', 'index.html'));
+// Khởi tạo một instance của AdminRouter
+const adminRouterInstance = new AdminRouter();
 
-});
+// Sử dụng router của lớp AdminRouter làm middleware
+// Tất cả các yêu cầu đến '/admin' sẽ được xử lý bởi AdminRouter
 
-app.get('/about', (req, res) => {
-    res.send('Hello about test nodemon');
-});
-app.listen(3000);
+app.use('/admin', adminRouterInstance.getRouter());
+app.all('/admin/api', adminApi());
+app.listen(port, () => {
+  console.log(`Ứng dụng đang chạy tại http://localhost:${port}`);
+})
