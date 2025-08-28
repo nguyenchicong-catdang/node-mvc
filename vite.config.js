@@ -12,11 +12,16 @@ export default defineConfig({
 
         // Tùy chỉnh proxy
         proxy: {
-        '/api': {
-            target: 'http://localhost:3000',
-            changeOrigin: true,
-            rewrite: (path) => path.replace(/^\/api/, ''),
-        },
+            '/api/admin/': {
+                target: 'http://localhost:3000',
+                changeOrigin: true,
+                //rewrite: (path) => path.replace(/^\/api/, ''),
+            },
+            // Proxy một đường dẫn cụ thể khác
+            '/auth/login': {
+                target: 'http://localhost:3000',
+                changeOrigin: true,
+            },
         },
     },
 });

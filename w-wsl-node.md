@@ -28,3 +28,10 @@ sudo tail -f /var/log/nginx/error.log
 sudo tail -f /var/log/nginx/access.log
 
 curl http://localhost:3000
+
+# form data
+npm install express-formidable
+
+const { username, password } = req.fields;
+
+app.post('/auth/login',formidable(), loginControllerInstance.login());

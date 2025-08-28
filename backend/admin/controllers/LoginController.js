@@ -1,24 +1,18 @@
 // backend/admin/controllers/LoginController.js
 
 class LoginController {
-    // constructor(req) {
-    //     this.req = req
-    // }
-    
-    // index(req, res) {
-    //     return res.send('Admin controller')
-    // }
-
-    login(req, res) {
-        if (req.method === "POST") {
-            //return res.json({login:'test json'});
-            return Response.json({mss: ok})
-        }
-    }
-    login(req, res) {
-        // This is the actual function that Express will execute.
-        res.send('This is the login page.');
+    login() {
+        return (req, res) => {
+            // express-formidable will parse the form data into req.fields
+            const { username, password } = req.fields; 
+            
+            // Now you can access and use the form data
+            console.log('Username:', username);
+            console.log('Password:', password);
+            
+            res.json({ message: 'Login successful', username: username });
+        };
     }
 }
 
-export {LoginController}
+export { LoginController };
