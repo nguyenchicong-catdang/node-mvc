@@ -4,7 +4,7 @@ class LoginController {
     login() {
         return (req, res) => {
             // express-formidable will parse the form data into req.fields
-            const { username, password } = req.fields; 
+            const { username, password } = req.body; 
             
             // Now you can access and use the form data
             console.log('Username:', username);

@@ -15,7 +15,8 @@
   "type": "module",
   "dependencies": {
     "express": "^5.1.0",
-    "express-formidable": "^1.2.0"
+    "express-formidable": "^1.2.0",
+    "multer": "^2.0.2"
   },
   "devDependencies": {
     "concurrently": "^9.2.1",
