@@ -48,3 +48,9 @@ sudo nginx -t
 sudo service nginx reload
 
 add port 80
+
+sudo ss -tulnp | grep 3000
+
+sudo kill -9 20022
+
+sudo service nginx restart
