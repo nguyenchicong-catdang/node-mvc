@@ -51,3 +51,24 @@ const upload = multer();
 // Sử dụng upload.none() để xử lý form chỉ có dữ liệu text
 // Multer sẽ parse dữ liệu form và đặt vào req.body
 app.post('/auth/login', upload.none(), loginControllerInstance.login());
+
+## bcrypt
+
+npm install bcrypt
+
+so khớp
+
+const isMatch = await bcrypt.compare(password, this.hashedPassword);
+
+tạo mật khẩ băm
+
+const saltRounds = 10;
+
+const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+// lấy băm mật khẩu
+const passhash = this.loginModelInstance.hashPassword('123');
+console.log(passhash);
+## kết nối mysql server
+
+npm install mysql2

@@ -56,3 +56,19 @@ sudo kill -9 20022
 sudo service nginx restart
 
 sudo chmod -R 755 /workspaces/node-mvc
+
+## mysql
+
+sudo apt update
+sudo apt install mysql-server
+sudo service mysql start
+
+### bảm mật sql
+sudo mysql_secure_installation
+### kết nối
+sudo mysql
+sudo mysql -u root -p
+sudo mysql -h <host_ip> -u <username> -p
+
+CREATE DATABASE ten_co_so_du_lieu;
+USE ten_co_so_du_lieu;
