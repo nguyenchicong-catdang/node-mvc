@@ -1,10 +1,8 @@
 // vite.config.js
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
+
 export default defineConfig({
     root: './frontend',
-    // Set the public directory to a different folder
-    publicDir: 'static',
     server: {
         // Cấu hình cổng cho dev server
         port: 5173,
@@ -23,21 +21,6 @@ export default defineConfig({
             '/auth/login': {
                 target: 'http://localhost:3000',
                 changeOrigin: true,
-            },
-        },
-    },
-    build: {
-        outDir: 'public',
-        rollupOptions: {
-            input: {
-                'frontend/admin/login': resolve(__dirname, 'frontend/admin/login/login.html')
-            },
-            output: {
-                // Cấu hình tên file đầu ra dựa trên tên điểm vào
-                //entryFileNames: '[name]/[name]-[hash].js',
-                entryFileNames: '[name]-[hash].js',
-                chunkFileNames: 'assets/[name]-[hash].js',
-                assetFileNames: 'assets/[name]-[hash].[ext]',
             },
         },
     },

@@ -54,3 +54,5 @@ sudo ss -tulnp | grep 3000
 sudo kill -9 20022
 
 sudo service nginx restart
+
+sudo chmod -R 755 /workspaces/node-mvc
