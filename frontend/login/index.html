@@ -20,6 +20,9 @@
         button {
             font-size: large;
         }
+        .error-message {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -28,6 +31,7 @@
         <input type="text" name="username" placeholder="User Name" autocomplete="username">
         <input type="text" name="password" placeholder="Password" autocomplete="new-password">
         <button type="submit">Login</button>
+        <br><div class="error-message"></div>
     </form>
     <script type="module" src="./login.js"></script>
 </body>

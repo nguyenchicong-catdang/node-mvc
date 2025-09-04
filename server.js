@@ -7,6 +7,10 @@ import multer from 'multer';
 import { adminApi } from './backend/admin/core/adminApi.js';
 import { ApiAdmin } from './backend/admin/core/ApiAdmin.js';
 import { LoginController } from './backend/admin/controllers/LoginController.js';
+
+//dev
+import { DevServer } from './backend/admin/core/DevServer.js';
+
 const app = express();
 const port = 3000;
 
@@ -27,6 +31,9 @@ app.all('/api/admin', apiAdminInstance.getRouter());
 app.all('/admin/api', adminApi());
 //app.post('/auth/login',formidable(), loginControllerInstance.login());
 app.post('/auth/login',upload.none(), loginControllerInstance.login());
+
+// dev
+new DevServer(app);
 
 app.listen(port, () => {
   console.log(`Ứng dụng đang chạy tại http://localhost:${port}`);
