@@ -31,10 +31,7 @@ class DevServer {
             // Fetch the HTML from the Vite development server
             const response = await fetch(`http://localhost:5173${newPath}`);
             // ... error handling ...
-            let html = await response.text();
-
-            let regex = /<post-title>.*?<\/post-title>/g; // Thêm cờ `g`
-            let htmlContent = html.replace(regex, '<p>Đây là tiêu đề mới được thay thế</p>');
+            let htmlContent = await response.text();
 
             // ❌ DO NOT replace the URL. Leave it as a relative path.
             // const viteClientRegex = /(src=")\/(@vite\/client")/g;

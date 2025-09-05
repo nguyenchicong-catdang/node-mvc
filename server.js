@@ -17,6 +17,9 @@ const port = 3000;
 // Tạo một instance của Multer mà không lưu trữ bất kỳ file nào
 // Đây là lựa chọn tốt khi form chỉ gửi dữ liệu text (như form login)
 const upload = multer(); 
+app.get('/', (req, res) => {
+  res.send('/')
+})
 
 // Khởi tạo một instance của AdminRouter
 //const adminRouterInstance = new AdminRouter();
